@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="../static/main.css">
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+
+    <!-- To-Do 리스트 표시 -->
+    <ul>
+        <!-- {% for todo in todos %} -->
+        <li class="li_box">
+            <div class="li_top">
+
+                <h3>{{ todo.title }}</h3>
+
+                <p>마감날짜 {{todo.due_date }} ({{ todo.priority }})</p>
+
+            </div>
+            <div class="li_mid">
+
+                {{ todo.description }}
+            </div>
+            <div class="li_bot">
+                <!-- 수정 버튼 -->
+                <form action="{{ url_for('edit_todo_page', todo_id=todo.todo_id) }}" method="get">
+                    <button type="submit">수정</button>
+                </form>
+                <!-- 삭제 버튼 -->
+                <form action="{{ url_for('delete_todo', todo_id=todo.todo_id) }}" method="post">
+                    <button type="submit">삭제</button>
+                </form>
+            </div>
+        </li>
+        <!-- {% endfor %} -->
+    </ul>
+
+    <!-- To-Do 항목 추가 폼 -->
+    <h2>새로운 To-Do 항목 추가</h2>
+    <div class="li_box2">
+
+        <form action="{{ url_for('add_todo') }}" method="post">
+            <div class="li_top">
+                <div>
+                    <input type="text" id="title" name="title" required placeholder="제목">
+                </div>
+                <div>
+                    <label for="due_date">마감일:</label>
+                    <input type="date" id="due_date" name="due_date" required>
+                    <label for="priority">우선순위:</label>
+                    <select id="priority" name="priority" required>
+                        <option value="low">낮음</option>
+                        <option value="medium">보통</option>
+                        <option value="high">높음</option>
+                    </select>
+                </div>
+            </div>
+            <div class="li_mid">
+                <textarea id="description" name="description" placeholder="내용"></textarea><button
+                    type="submit">추가</button>
+            </div>
+            <div class="li_bot">
+
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

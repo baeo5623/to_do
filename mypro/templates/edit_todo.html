@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/main.css">
+</head>
+
+<body>
+    <div class="li_box2">
+        <!-- 수정 폼 -->
+        <form action="{{ url_for('edit_todo', todo_id=todo.todo_id) }}" method="post">
+            <div class="li_top">
+                <div>
+                    <input type="text" id="title" name="title" value="{{ todo.title }}" required placeholder="제목">
+                </div>
+                <div>
+                    <label for="due_date">마감일:</label>
+                    <input type="date" id="due_date" name="due_date" value="{{ todo.due_date }}" required>
+                    <label for="priority">우선순위:</label>
+                    <select id="priority" name="priority" required>
+                        <option value="low" {% if todo.priority=='low' %}selected{% endif %}>낮음</option>
+                        <option value="medium" {% if todo.priority=='medium' %}selected{% endif %}>보통</option>
+                        <option value="high" {% if todo.priority=='high' %}selected{% endif %}>높음</option>
+                    </select>
+
+                </div>
+
+
+            </div>
+            <div class="li_mid">
+                <textarea id="description" name="description" placeholder="내용">{{ todo.description }}</textarea>
+                <button type="submit">수정 완료</button>
+            </div>
+
+
+        </form>
+    </div>
+</body>
+
+</html>

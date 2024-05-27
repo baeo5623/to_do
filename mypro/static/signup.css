@@ -1,0 +1,78 @@
+body {
+  height: 97vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid;
+  border-radius: 10px;
+  height: 490px;
+  width: 450px;
+}
+.login-box #username,
+#password {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 271px;
+  height: 40px;
+  padding-left: 10px;
+}
+.login-box form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.line-1 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px 0 0 0;
+  width: 330px;
+  height: 0px;
+  margin-top: 10px;
+  left: 60px;
+  top: 263px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+}
+.box {
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+}
+.box * {
+  width: 128px;
+  height: 40px;
+  border: solid black 0.5px;
+  margin: 0px;
+  padding: 0px;
+}
+.box a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box input[type="submit"] {
+  box-sizing: content-box;
+  background-color: white;
+  width: 283px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration-line: none;
+  color: black;
+  margin: 0px;
+  padding: 0px;
+}
+#username-availability {
+  font-size: 10px;
+  padding-top: 1px;
+}
